@@ -11,9 +11,8 @@ Tìm tất cả các hoán vị của một mảng có N tự nhiên
 	  arr[y]=temp;
     }
     
-    ```
+   
 
-```
 function HoanVi(mang,n){
 	if(n===1){
 		let str='';
