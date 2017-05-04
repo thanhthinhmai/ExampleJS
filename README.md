@@ -4,13 +4,13 @@
 Tìm tất cả các hoán vị của một mảng có N tự nhiên
    Đặt temp là biến cờ để đổi chỗ vị trí 2 phần tử trong mảng x,y.
    
-   ``` javascript
+``` javascript
     function Swap(x,y){
 	  let temp =arr[x];
 	  arr[x]=arr[y];
 	  arr[y]=temp;
     }
-    ```
+ ```
    
 ``` javascript
 function HoanVi(mang,n){
