@@ -3,15 +3,16 @@
 ### Demo
 Tìm tất cả các hoán vị của một mảng có N tự nhiên
    Đặt temp là biến cờ để đổi chỗ vị trí 2 phần tử trong mảng x,y.
-   
-   
-      function Swap(x,y){
+   ```
+    function Swap(x,y){
 	  let temp =arr[x];
 	  arr[x]=arr[y];
 	  arr[y]=temp;
     }
-    
+    
+    ```
 
+```
 function HoanVi(mang,n){
 	if(n===1){
 		let str='';
@@ -36,6 +37,7 @@ function HoanVi(mang,n){
 	}
 }
 
+```
 ### ViDu
 Kiểm tra số chẵn lẻ
 
