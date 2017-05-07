@@ -65,8 +65,8 @@ if(i < h){
 				}
 			}
 ```
-⋅⋅* Thỏa mãn điều kiện j2 == h - 1 - i ||  j2 == h -1 +i (let  j2= j%width) sẽ in * ⋅⋅*
-⋅⋅* Không thỏa mãn điều kiện in ra chuỗi rỗng.
+⋅⋅⋅ Thỏa mãn điều kiện j2 == h - 1 - i ||  j2 == h -1 +i (let  j2= j%width) sẽ in * ⋅⋅
+⋅⋅⋅ Không thỏa mãn điều kiện in ra chuỗi rỗng. ⋅⋅
  2. Để vẽ nửa dưới .Ta có đoạn code sau đây.
  ```
 for(let j = 0; j < N * H - N; j++){
@@ -79,7 +79,7 @@ for(let j = 0; j < N * H - N; j++){
 			}
 ```
 
-⋅⋅* Để in ra dấu '*' ở nửa dưới thì phải thoả mãn điều kiện.
-if((j2 === (i -h +1)) || (j2 === width - (i-h +1)))
- Nếu không thỏa mãn thì sẽ in ra chuỗi rỗng
+⋅⋅⋅ Để in ra dấu '*' ở nửa dưới thì phải thoả mãn điều kiện. ⋅⋅
+⋅⋅⋅ if((j2 === (i -h +1)) || (j2 === width - (i-h +1))) ⋅⋅
+⋅⋅⋅ Nếu không thỏa mãn thì sẽ in ra chuỗi rỗng ⋅⋅
  
