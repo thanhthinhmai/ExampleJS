@@ -52,7 +52,7 @@ function HoanVi(mang,n){
 ### Draw Diamond
 * Vẽ các khối bằng javascript
 1. Để vẽ nửa trên của khối cần vẽ. Ta có đoạn code sau đây:
-⋅⋅* Unordered sub-list
+
 ```
 if(i < h){
 			for(let j = 0; j < N * H - N +1;j++){
@@ -79,7 +79,7 @@ for(let j = 0; j < N * H - N; j++){
 			}
 ```
 
-⋅⋅* Để in ra dấu '*' ở nửa dưới thì phải thoả mãn điều kiện
+⋅⋅* Để in ra dấu '*' ở nửa dưới thì phải thoả mãn điều kiện.
 if((j2 === (i -h +1)) || (j2 === width - (i-h +1)))
  Nếu không thỏa mãn thì sẽ in ra chuỗi rỗng
  
