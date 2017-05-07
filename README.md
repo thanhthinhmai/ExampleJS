@@ -1,7 +1,7 @@
 # ExmpleJS
 
 ### Demo
-⋅⋅⋅Tìm tất cả các hoán vị của một mảng có N tự nhiên
+* Tìm tất cả các hoán vị của một mảng có N tự nhiên
    Đặt temp là biến cờ để đổi chỗ vị trí 2 phần tử trong mảng x,y.
    
 ``` javascript
@@ -39,18 +39,18 @@ function HoanVi(mang,n){
 
 ```
 ### ViDu
-⋅⋅⋅ Kiểm tra số chẵn lẻ
+* Kiểm tra số chẵn lẻ
 
 ### ViDu1
-⋅⋅⋅ Tính lãi suất trong 1 năm
+* Tính lãi suất trong 1 năm
 
 ### ViDu2
-⋅⋅⋅ Kiểm tra số nguyên tố, liệt kê các số nguyên tố
+* Kiểm tra số nguyên tố, liệt kê các số nguyên tố
 
 ### ViDu3
 Đảo chuỗi kí tự
 ### Draw Diamond
-⋅⋅⋅ Vẽ các khối bằng javascript
+* Vẽ các khối bằng javascript
 1. Để vẽ nửa trên của khối cần vẽ. Ta có đoạn code sau đây:
 ```
 if(i < h){
