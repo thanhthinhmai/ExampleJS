@@ -1,7 +1,7 @@
 # ExmpleJS
 
 ### Demo
-Tìm tất cả các hoán vị của một mảng có N tự nhiên
+... Tìm tất cả các hoán vị của một mảng có N tự nhiên
    Đặt temp là biến cờ để đổi chỗ vị trí 2 phần tử trong mảng x,y.
    
 ``` javascript
@@ -39,13 +39,45 @@ function HoanVi(mang,n){
 
 ```
 ### ViDu
-Kiểm tra số chẵn lẻ
+... Kiểm tra số chẵn lẻ
 
 ### ViDu1
-Tính lãi suất trong 1 năm
+... Tính lãi suất trong 1 năm
 
 ### ViDu2
-Kiểm tra số nguyên tố, liệt kê các số nguyên tố
+... Kiểm tra số nguyên tố, liệt kê các số nguyên tố
 
 ### ViDu3
 Đảo chuỗi kí tự
+### Draw Diamond
+... Vẽ các khối bằng javascript
+1. Để vẽ nửa trên của khối cần vẽ. Ta có đoạn code sau đây:
+```
+if(i < h){
+			for(let j = 0; j < N * H - N +1;j++){
+				let j2 = j % width;
+				if((j2 == h - 1 - i) || (j2 == h - 1 + i)){ //4 - 1 -1=2 , 4-1 -2=1,4-1-3=0,
+																// 4-1+1=4,4-1+2=5,4-1+3=6
+					str += '*';
+				}else{
+					str += ' ';
+				}
+			}
+```
+..* Thỏa mãn điều kiện j2 == h - 1 - i ||  j2 == h -1 +i (let  j2= j%width) sẽ in *
+..* Không thỏa mãn điều kiện in ra chuỗi rỗng.
+ 2. Để vẽ nửa dưới .Ta có đoạn code sau đây.
+```
+for(let j = 0; j < N * H - N; j++){
+				let j2 = j % width;
+				if((j2 === (i -h +1)) || (j2 === width - (i-h +1))){
+					str +='*';
+				}else{
+					str +=' ';
+				}
+			}
+```
+..* Để in ra dấu '*' ở nửa dưới thì phải thoả mãn điều kiện
+if((j2 === (i -h +1)) || (j2 === width - (i-h +1)))
+..* Nếu không thỏa mãn thì sẽ in ra chuỗi rỗng
+ 
