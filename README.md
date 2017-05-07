@@ -1,7 +1,7 @@
 # ExmpleJS
 
 ### Demo
-... Tìm tất cả các hoán vị của một mảng có N tự nhiên
+. . . Tìm tất cả các hoán vị của một mảng có N tự nhiên
    Đặt temp là biến cờ để đổi chỗ vị trí 2 phần tử trong mảng x,y.
    
 ``` javascript
