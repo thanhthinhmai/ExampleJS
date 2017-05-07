@@ -65,7 +65,7 @@ if(i < h){
 				}
 			}
 ```
-⋅⋅* Thỏa mãn điều kiện j2 == h - 1 - i ||  j2 == h -1 +i (let  j2= j%width) sẽ in *
+⋅⋅* Thỏa mãn điều kiện j2 == h - 1 - i ||  j2 == h -1 +i (let  j2= j%width) sẽ in * ⋅⋅*
 ⋅⋅* Không thỏa mãn điều kiện in ra chuỗi rỗng.
  2. Để vẽ nửa dưới .Ta có đoạn code sau đây.
  ```
