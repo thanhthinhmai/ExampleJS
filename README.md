@@ -97,7 +97,36 @@ for(let j = 0; j < N * H - N; j++){
   - Chuyển n -1 đĩa từ cọc A sang cọc trung gian B.
   - Chuyển đĩa to nhất từ cọc A sang cọc đích C.
   - Chuyển n-1 đĩa từ cọc B sang cọc đích C.
-
+- Function thaphanoi(n,a,b,c) là một hàm đệ quy thực hiện việc chuyển đĩa thứ n từ cốc A sang cốc C.
+- Sử dụng cột trung gian B.
+- Từ bài toán chuyển n đĩa .Ta sẽ biến thành bài toán chuyển n -1 đĩa vào cốc.
+- Điểm dừng của thuật toán đệ quy là khi n = 1.
+```
+function thaphanoi(n,a,b,c){
+	
+	if(n === 1)
+		chuyen(1,a,c);
+        // Ta chuyển đĩa nhỏ từ cốc A --> C
+	else{
+                // Chuyển n - 1 đĩa từ cốc A sang cốc B, cốc C là cốc trung gian.
+		thaphanoi(n-1,a,c,b);
+                // Thực hiện chuyển n đĩa từ cọc A sang cọc C.
+		chuyen(n,a,c);
+                // Chuyển n -1 đĩa từ cọc B sang cọc A , cọc C là cọc trung gian.
+		thaphanoi(n-1,b,c,a);
+	}
+	return;
+}
+```
+- Function chuyen(n,a,c) thực hiện việc chuyển đĩa thứ n từ cốc A sang cốc C.
+```
+function chuyen(n,a,c){
+		console.log('Chuyen dia thu '+ n.toString()+' ' + 'tu coc' +' '+ a +' '+ 'sang' +' '+ c);
+		return;
+}
+thaphanoi(3,'A','B','C');
+```
+  
 - Kết quả
 ```
 Chuyen dia thu 1 tu coc A sang C
