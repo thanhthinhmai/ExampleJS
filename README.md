@@ -96,5 +96,15 @@ for(let j = 0; j < N * H - N; j++){
 - Với n > 2 :
   - Chuyển n -1 đĩa từ cọc A sang cọc trung gian B.
   - Chuyển đĩa to nhất từ cọc A sang cọc đích C.
-  - Chuyển n-1 đĩa từ cọc B sang cọc đích C.
- 
+  - Chuyển n-1 đĩa từ cọc B sang cọc đích C.
+
+- Kết quả
+```
+Chuyen dia thu 1 tu coc A sang C
+Chuyen dia thu 2 tu coc A sang B
+Chuyen dia thu 1 tu coc C sang A
+Chuyen dia thu 3 tu coc A sang C
+Chuyen dia thu 1 tu coc B sang C
+Chuyen dia thu 2 tu coc B sang A
+Chuyen dia thu 1 tu coc C sang B
+```
