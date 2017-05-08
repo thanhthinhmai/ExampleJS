@@ -83,3 +83,18 @@ for(let j = 0; j < N * H - N; j++){
 - if((j2 === (i -h +1)) || (j2 === width - (i-h +1))) 
 - Nếu không thỏa mãn thì sẽ in ra chuỗi rỗng 
  
+### Tháp Hà Nội
+* Mô tả bài toán Tháp Hà nội
+- Yêu cầu bài toán chuyển toàn bộ n đĩa từ cọc ban đầu A  sang cọc đích C, cọc trung gian là B.
+  Trong mọi trường hợp chuyển đĩa phải thoả mãn điều kiện đĩa to hơn phải nằm  dưới đĩa nhỏ.
+- Với n = 1:
+- Ta có thể dịch chuyển đĩa từ cọc A sang cọc C.
+- Với n = 2:
+- Chuyển đĩa nhỏ từ cọc A sang cọc trung gian B.
+- Chuyển đĩa lớn từ cọc A sang cọc đích C.
+- Chuyển đĩa nhỏ từ cọc B sang cọc đích C.
+- Với n > 2 :
+- Chuyển n -1 đĩa từ cọc A sang cọc trung gian B.
+- Chuyển đĩa to nhất từ cọc A sang cọc đích C.
+- Chuyển n-1 đĩa từ cọc B sang cọc đích C.
+ 
