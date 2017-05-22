@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hanoi Tower</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="d3/d3.js"></script>
+</head>
+<body >
+	<div class="container" style="margin-top: 6rem;">
+		<div style="text-align: center; margin-bottom: 15rem;">
+			<input placeholder="Enter n = ">
+			<button onclick="createTower()">N =</button>
+			<button onclick="moveTower()">Start</button>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		let svg = '';
+		let bigDisk = 240; 
+		let d = bigDisk + bigDisk/2;
+		let smallDisk = '';
+		// let disks_input = total_disks = '';
+		let arrDisk = [];
+		let arrBird = [];
+		let tower_height = ''; disks_in_tower1=disks_in_tower2=disks_in_tower3= '';
+		let i = 1; steps = click = 0;
+		// class Bird {
+		// 	constructor(bird){
+		// 		this.bird = bird;
+		// 	}
+		// 	builBird(){
+		// 		svg.append('image')
+		// 			.attr('xlink:href', 'image/human-flapping.gif')
+		// 			.attr('with',100)
+		// 			.attr('height',100)
+		// 			.attr('x',0)
+		// 			.attr('y',0)
+		// 			.classed('bird',true)
+		// 			arrBird.push(d3.select('.bird'+i));
+		// 			// arrDisk.push(d3.select(".disk" + i));
+		// 			console.log(arrBird);
+		// 	}
+		// }
+		class Disk {
+			constructor(disks_input){
+				this.disks_input = disks_input;
+			}
+			build_disk(){
+				smallDisk = bigDisk/disks_input;
+				// 240 / 3 = 80
+				for (let i = 1; i<=disks_input; i++){
+					svg.append("rect")
+						
+					.attr("x", function(){
+						return (disks_input-i)*(smallDisk/2);
+						// (3 - 0) * (80/2) = 3 * 40
+						// 					= 2 * 40
+						//					= 40
+					})
+					.attr("y", function(){
+						return i*10+90;
+						// 1 * 15 + 100 = 115
+						// 2 *15 + 100 =130
+						// 1 * 10 + 100 = 110
+						//				120
+						//				130
+						// 				140
+					})
+					.attr("width", function(){
+						return i*smallDisk;
+					})
+					.attr("height",10)
+					.attr("rx",10)
+					.attr("ry",10)
+					.attr("stroke-width", 1)
+					.attr("stroke", "rgba(0,0,0,.5)")
+					.classed("disk" + i + " color", true);
+					arrDisk.push(d3.select(".disk" + i));
+					console.log(arrDisk);
+				}
+				d3.selectAll(".color").style("fill", function() {
+					return "hsl(" + Math.random() * 360 + ",100%,50%)";
+				});
+					// var svgContainer = d3.select("body").append("svg")
+					//                      .attr("width", 200)
+					//                     .attr("height", 200);
+										
+					// var circle = svgContainer.append("circle")
+					//           .attr("cx", 30)
+					//           .attr("cy", 30)
+					//          .attr("r", 20);
+			}
+		}
+		class Tower {
+			build_tower(){
+				// Ve cot doc
+				for (let j=0; j<3; j++){
+					svg.append("rect")
+					.attr("x", function(){
+						return j*d + (bigDisk/2) - 5;
+						//  = 1 * 360 + 240/2 -5
+					})
+					.attr("y", 40)
+					.attr("rx", 10)
+					.attr("ry", 0)
+					.attr("width", 15	)
+					.attr("height", disks_input*30)
+					// 1 * 40 chieu cao tang dan theo so luong dia
+					.attr("fill", "#CDB38B");
+				}
+
+				// Ve cot ngang
+				for (let j=0; j<3; j++){
+					svg.append("rect")
+					.attr("x", function(){
+						return j*d;
+					})
+					.attr("y", disks_input*10	+100)
+					.attr("rx", 0)
+					.attr("ry", 10)
+					.attr("width", bigDisk)
+					.attr("height", 20)
+					.attr("fill", "#CDB38B");
+				}
+			}
+		}
+		class GameEngine {
+		
+			move(n, a, b, c){
+				if (n > 0) {
+					this.move(n-1, a, c, b);
+					if (a == 0 && c == d){
+						arrDisk[n-1]
+						.transition()
+						.delay(i*2000)
+						.transition()
+						.duration(750)
+						.attr("y", 0)
+						.transition()
+						.duration(750)
+						.attr("x", c+(total_disks-n)*(smallDisk/2))
+						.transition()
+						.duration(750)
+						.attr("y", tower_height - disks_in_tower2*10+90)
+						// .attr('y',tower_height - disks_in_tower2*10+90);
+						disks_in_tower1--; disks_in_tower2++;
+						// console.log("disks_in_tower1 " + disks_in_tower1 + ", disks_in_tower2 " + disks_in_tower2);
+						i++;
+					}
+					if (a == 0 && c == 2*d){
+						arrDisk[n-1]
+						.transition()
+						.delay(i*2000)
+						.transition()
+						.duration(750)
+						.attr("y", 0)
+						.transition()
+						.duration(750)
+						.attr("x", c+(total_disks-n)*(smallDisk/2))
+						.transition()
+						.duration(750)
+						// .attr("y", tower_height - disks_in_tower3*10+90)
+						.attr("y", tower_height - disks_in_tower3*10+90);
+						disks_in_tower1--; disks_in_tower3++;
+						// console.log("disks_in_tower1 " + disks_in_tower1 + ", disks_in_tower3 " + disks_in_tower3);
+						i++;
+					}
+					if (a == d && c == 0){
+						arrDisk[n-1]
+						.transition()
+						.delay(i*2000)
+						.transition()
+						.duration(750)
+						.attr("y", 0)
+						.transition()
+						.duration(750)
+						.attr("x", c+(total_disks-n)*(smallDisk/2))
+						.transition()
+						.duration(750)
+						// .attr("y", tower_height - disks_in_tower1*10+90)
+						.attr("y", tower_height - disks_in_tower1*10+90);
+						disks_in_tower2--; disks_in_tower1++;
+						// console.log("disks_in_tower1 " + disks_in_tower1 + ", disks_in_tower2 " + disks_in_tower2);
+						i++;
+					}
+					if (a == d && c == 2*d){
+						arrDisk[n-1]
+						.transition()
+						.delay(i*2000)
+						.transition()
+						.duration(750)
+						.attr("y", 0)
+						.transition()
+						.duration(750)
+						.attr("x", c+(total_disks-n)*(smallDisk/2))
+						.transition()
+						.duration(750)
+						// .attr("y", tower_height - disks_in_tower3*10+90)
+						.attr("y", tower_height - disks_in_tower1*10+90);
+						disks_in_tower2--; disks_in_tower3++;
+						// console.log("disks_in_tower2 " + disks_in_tower2 + ", disks_in_tower3 " + disks_in_tower3);
+						i++;
+					}
+					if (a == 2*d && c == d){
+						arrDisk[n-1]
+						.transition()
+						.delay(i*2000)
+						.transition()
+						.duration(750)
+						.attr("y", 0)
+						.transition()
+						.duration(750)
+						.attr("x", c+(total_disks-n)*(smallDisk/2))
+						.transition()
+						.duration(750)
+						// .attr("y", tower_height - disks_in_tower2*10+90)
+						.attr("y", tower_height - disks_in_tower1*10+90);
+						disks_in_tower2++; disks_in_tower3--;
+						// console.log("disks_in_tower2 " + disks_in_tower2 + ", disks_in_tower3 " + disks_in_tower3);
+						i++;
+					}
+					if (a == 2*d && c == 0){
+						arrDisk[n-1]
+						.transition()
+						.delay(i*2000)
+						.transition()
+						.duration(750)
+						.attr("y", 0)
+						.transition()
+						.duration(750)
+						.attr("x", c+(total_disks-n)*(smallDisk/2))
+						.transition()
+						.duration(750)
+						// .attr("y", tower_height - disks_in_tower1*10+90)
+						.attr("y", tower_height - disks_in_tower1*10+90);
+						disks_in_tower1++; disks_in_tower3--;
+						// console.log("disks_in_tower1 " + disks_in_tower1 + ", disks_in_tower3 " + disks_in_tower3);
+						i++;
+					}
+					// console.log("Move disk " + n + " from " + tower1 + " to " + tower3);
+					// steps++;
+					// console.log("Steps: " + steps);
+					this.move(n-1, b, a, c);
+				}
+			}
+		}
+		function createTower(){
+			d3.selectAll("svg").remove();
+			steps = click = 0;
+			disks_input = $('input').val();
+			try {
+				if (isNaN(disks_input) || disks_input <= 0 || disks_input === ''){
+					throw "Please insert a number!";
+				}
+			}
+			catch (e){
+				alert("Please insert a number!");
+				return;
+			}
+			arrDisk = []; disks_in_tower2=disks_in_tower3 = ''; i = 1;
+			svg = d3.select(".container").append("svg").attr("width", $(".container").width()).attr("height", disks_input*10+200);
+			// let img = svg.selectAll('img').data[0];
+			
+			tower_height = disks_input*10;
+			disks_in_tower1 = total_disks = disks_input;
+			let build_disk = new Disk(disks_input);
+			let build_tower = new Tower();
+			build_tower.build_tower();
+			build_disk.build_disk();
+			// let build_bird = new Bird('bird');
+			// build_bird.builBird();
+			
+		}
+		function moveTower(){
+			if (click >0){
+				return;
+			}
+			click++;
+			disks_input = Number($('input').val());
+			let gameEngine = new GameEngine(disks_input);
+			let a = 0; b = d; c = 2*d
+			gameEngine.move(disks_input, a, b, c);
+		}
+	</script>
+</body>
+</html>
